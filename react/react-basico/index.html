@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+
+    <!-- Carrega o React, React Dom e Babel -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Don't use this in production: -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div class="root"></div>
+
+    <script type="text/babel">
+
+        const roupa = 'Camiseta gola polo'
+        
+
+        const Logo = () => {
+            return <h1>VIVARA</h1>
+        }
+
+        const Card = () => {
+            return <div>
+                <p>{ roupa }</p>
+                <p>R$ 200,00</p>
+                <Button />
+            </div>
+        }
+
+        const Button = () => {
+            const [count, setCount] = React.useState(0);
+
+            function increment() {
+            setCount(count + 1);
+            }
+
+            return <button onClick={increment}>Comprado: { count }</button>
+        }
+
+        function App () {
+            return (
+                <div>
+                    <Logo />
+                    <Card />
+                </div>
+            )
+        }
+
+        const container = document.querySelector('.root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />)
+    </script>
+</body>
+</html>
